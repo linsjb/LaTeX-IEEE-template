@@ -1,0 +1,47 @@
+% Custom commands for cleaner and easier implementation in the documents.
+% Package "cleveref" is needed for the "fullref" commands.
+
+\newcommand{\fig}[5]{%
+    \figure[#1]
+        \centering
+        \includegraphics[width=#2\textwidth]{#4}
+        \caption{#5}\label{fig:#3}
+    \endfigure
+}
+
+\newcommand{\framedFig}[5]{%
+    \figure[#1]
+        \centering
+        \framebox{\includegraphics[width=#2\textwidth]{#4}}
+        \caption{#5}\label{fig:#3}
+    \endfigure
+}
+
+\newcommand{\code}[5]{%
+    \begin{listing}[#1]
+        \caption{#3}
+        \label{code:#2}
+        \inputminted[frame=lines]{#4}{\codePath #5}
+    \end{listing}
+}
+
+\newcommand{\tikzFig}[3]{%
+    \figure[#1]
+        \centering
+        \resizebox{1\textwidth}{!}{%
+            \input{\tikzPath #2.tex}
+        }%
+        \caption{#3}\label{fig:#2}
+    \endfigure
+}
+
+\newcommand{\texTable}[3]{%
+    \table[#1]
+        \centering
+        \caption{#3}\label{tab:#2}
+        \input{\tablePath #2.tex}
+    \endtable
+}
+
+\newcommand*{\fullref}[1]{\textit{\cref{#1} \nameref{#1}}}
+\newcommand*{\Fullref}[1]{\textit{\Cref{#1} \nameref{#1}}}
