@@ -55,3 +55,17 @@ The template has a few different custom command, so called "oneliners" for easy 
 
 \numItems{countListLabel}
 ```
+
+## Attachments
+
+Attachments should be placed in the `attachments` folder. Depending on what kind of element that is inserted different path's should be used.
+The `main.tex` hold's variables for the different paths (example below with the predefined paths). Change these paths to suit you're needs.
+
+```latex
+\graphicspath{{./attachments/figures/images/}}
+\newcommand{\tikzPath}{./attachments/figures/tikz/}
+\newcommand{\codePath}{./attachments/code/}
+\newcommand{\tablePath}{./attachments/tables/}
+```
+
+These variables is used in the onelines mentioned above.
