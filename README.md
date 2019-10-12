@@ -27,6 +27,7 @@ The template has a few different custom command, so called "oneliners" for easy 
 | \csvTable  | position, caption, label, filename           | Takes a `.csv` file and turn it into a LaTeX-table              |
 | \code      | position, caption, label, language, filename | Inputs code from extrernal files                                |
 | \fullref   | label                                        | Full reference mentioned in `reference` section above           |
+| \numItems  | countList label                              | Get the size of a custom enumerate (countList)                  |
 
 ### Inputs
 
@@ -51,4 +52,6 @@ The template has a few different custom command, so called "oneliners" for easy 
 \code{H}{code caption}{codeLabel}{cpp}{main.cpp}
 
 \fullref{labelInText}
+
+\numItems{countListLabel}
 ```

@@ -16,4 +16,23 @@
 % URL: https://www.ctan.org/pkg/csvsimple
 \usepackage{csvsimple}
 
+% Package and custom environment for new defined enumerate list.
+% With below environment the total items in the list can be dinamycally inserter into the document.
+% Created by stackexchange profile https://tex.stackexchange.com/users/5764/werner
+\usepackage{enumitem,refcount}
+
+\newcounter{countList}
+
+\makeatletter
+\newenvironment{countList}[2][]
+  {\begin{enumerate}[#1]
+     \setcounter{countList}{0}%
+     \def\countname{#2}%
+     \let\olditem\item
+     \renewcommand{\item}{\stepcounter{countList}\olditem}}
+  {  \renewcommand{\@currentlabel}{\arabic{countList}}%
+     \label{\countname}%
+   \end{enumerate}}
+\makeatother
+
 \input{settings/customCommands.tex}
